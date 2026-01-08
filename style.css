@@ -5,36 +5,44 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    min-height: 100vh;
     font-family: sans-serif;
+}
+
+/*Styling for the white outside the purple line*/
+.outerWhite{
+    background: #ffffff;
+    padding: 16px;
+    max-width: 1750px;
+    width: 100%;
+    border-radius: 5px;
 }
 
 /*Styling for the container box*/
 .container{
     background-color: #ffffff;
-    border: 4px solid #292745;
-    border-radius: 10px;
-
     padding: 32px;
-    width: 92%;
-    height: 85%;
-
     text-align: center;
+}
+
+/*Styling for the line around the white container*/
+.containerLine{
+    padding: 6px;
+    background-color: #292745;
+    border-radius: 5px;
 }
 
 /*Styling for button component*/
 .btn {
     padding: 12px 24px;
     border-radius: 8px;
-    border: none;
 
     background-color: #292745;
     color: #ffffff;
     border: 4px solid #292745;
 
-    font-size: 32;
+    font-size: 42px;
     font-weight: bold;
-    font-family: sans-serif;
 }
 
 .btn:hover{
@@ -46,8 +54,18 @@ body{
 /*Styling for the title text*/
 h1.title{
     font-weight: bold;
-    font-size: 48;
+    font-size: 54px;
     color: #292745;
     text-decoration-line: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: 12px;
+    padding-top: 20px;
+}
+
+/*Styling for welcome paragraph*/
+p.welcomePara{
+    font-size: 32px;
+    color:#292745;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 15px 0px 50px 0px;
 }
