@@ -1,7 +1,9 @@
 /*Chatbot interaction timer so each user only spends exactly 10mins talking to each chatbot*/
 window.addEventListener("DOMContentLoaded", () => {
+
     //Added in a data variable so only two of our pages (chabotA and chatbotB) will have this, this is added in the <body> in html
     if (!document.body.dataset.tenMinsA && !document.body.dataset.tenMinsB) return;
+
     const banner9mins = document.getElementById("banner9mins");
     const banner10secs = document.getElementById("banner10secs");
     let shown9mins = false;
