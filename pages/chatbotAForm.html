@@ -3,13 +3,14 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
+<body data-required-form-link="true">
+    <div id="openLinkBanner" class="banner hidden">Please complete the form before moving on </div>
     <div class="outerWhite">
         <div class="containerLine">
             <div class="container">
                 <h1 class="title">Thank you for interacting with Chatbot A</h1>
-                <p>Before continuing on please fill out <a href="https://forms.office.com/e/LX8cMrXSW1">this form</a> based on your experience talking to ChatbotA</p>
-                <button onclick="location.href='chatbotB.html'" class="btn" id="startButton">
+                <p>Before continuing on please fill out <a id="requiredLink" href="https://forms.office.com/e/LX8cMrXSW1" target="_blank">this form</a> based on your experience talking to ChatbotA</p>
+                <button class="btn is-disables" id="continueButton" aria-disabled="true" onclick="return switchPage('chatbotB.html')">
                     Continue
                 </button>
             </div>
