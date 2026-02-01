@@ -94,3 +94,37 @@ window.switchPage = function (nextPage) {
     window.location.assign(nextPage);
     return false;
 }
+
+/*Calling through to the backend to allow communication with the chatbot*/
+const chatInput = document.getElementById("chatInput");
+const chatOutput = document.getElementById("chatOutput");
+const sendChat = document.getElementById("sendChat");
+
+const chatBot = document.body.dataset.chatbot
+
+sendChat.addEventListener("click", async () => {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    chatOutput.textContent += "You: " + message + "\n";
+    chatInput.value = "";
+
+    try {
+        const res = await fetch("http://localhost:3000/api/conversation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                message,
+                chatBot
+            })
+        });
+
+        const data = await res.json();
+
+        chatOutput.textContent += "Chatbot: " + data.reply + "\n\n";
+    } catch (err) {
+        chatOutput.textContent += "Error talking to chatbot\n\n";
+        console.error(err);
+    }
+});
+

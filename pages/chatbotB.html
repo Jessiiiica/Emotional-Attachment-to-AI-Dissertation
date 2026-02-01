@@ -3,12 +3,19 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body data-ten-mins-b="true">
+<body data-ten-mins-b="true" data-chatbot="B">
     <div id="banner9mins" class="banner hidden">You have one minute left of interaction time</div>
     <div id="banner10secs" class="banner hidden">In 10 seconds you will be redirected to the next page</div>
     <div class="outerWhite">
         <div class="containerLine">
             <div class="container">
+                <div id="chat">
+                    <div id="chatOutput"></div>
+                    <input id="chatInput" type="text" placeholder="Start chatting here..." style="width: 80%;"/>
+                    <button id="sendChat" class="btn">
+                        Send
+                    </button>
+                </div>
                 <button onclick="location.href='chatbotBForm.html'" class="btn" id="startButton">
                     Next
                 </button>
