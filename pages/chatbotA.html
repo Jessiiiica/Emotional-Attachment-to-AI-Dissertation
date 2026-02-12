@@ -9,16 +9,35 @@
     <div class="outerWhite">
         <div class="containerLine">
             <div class="container">
-                <div id="chat">
-                    <div id="chatOutput"></div>
-                    <input id="chatInput" type="text" placeholder="Start chatting here..." style="width: 80%;"/>
-                    <button id="sendChat" class="btn">
-                        Send
-                    </button>
+
+                <div class="chatCard">
+                    <div class="chatHeader">
+                        <div class="chatHeaderLeft">
+                            <ims src="../images/ChatbotOne.png" alt="chatBot A Icon" class="chatIcon"></ims>
+                            <div class="chatTitle">ChatBot A</div>
+                        </div>
+                    </div>
+
+                    <div id="chatOutput" class="chatMessages">
+                        <div class="chatBubbleRow left"> 
+                            <div class="chatBubble left">Hi I am chatbot</div>
+                        </div>
+
+                        <div class="chatBubbleRow right"> 
+                            <div class="chatBubble right">Hi I am user</div>
+                        </div>
+                    </div>
+
+                    <div class="chatMessagesSend">
+                        <input id="chatInput" type="text" placeholder="Please type your response here..."/>
+                        <button id="sendChat" class="sendBtn">Send</button>
+                    </div>
                 </div>
+
                 <button onclick="location.href='chatbotAForm.html'" class="btn" id="startButton">
                     Next
                 </button>
+                
             </div>
         </div>
     </div>
