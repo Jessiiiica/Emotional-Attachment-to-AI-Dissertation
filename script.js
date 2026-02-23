@@ -48,9 +48,22 @@ window.addEventListener("DOMContentLoaded", () => {
             //if 10mins have passed then redirect the user to the next page
             if (timeLeft <= 0) {
                 if (document.body.dataset.tenMinsA) {
-                    window.location.assign("chatbotAForm.html");
+                    fetch("http://localhost:3000/api/save-chat", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ sessionId: sessionId })
+                    }).finally(() => {
+                        //need finally or doesnt finish saving everytime / fully
+                        window.location.assign("chatbotAForm.html");
+                    });
                 } else if (document.body.dataset.tenMinsB) {
-                    window.location.assign("chatbotBForm.html");
+                    fetch("http://localhost:3000/api/save-chat", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ sessionId: sessionId })
+                    }).finally(() => {
+                        window.location.assign("chatbotBForm.html");
+                    })
                 }
                 return;
             }
@@ -100,7 +113,9 @@ const chatInput = document.getElementById("chatInput");
 const chatOutput = document.getElementById("chatOutput");
 const sendChat = document.getElementById("sendChat");
 
-const chatBot = document.body.dataset.chatbot
+let sessionId = Date.now() + "_" + Math.random().toString(16).slice(2);
+
+const chatBot = document.body.dataset.chatbot;
 
 sendChat.addEventListener("click", async () => {
     const message = chatInput.value.trim();
@@ -114,8 +129,9 @@ sendChat.addEventListener("click", async () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                message,
-                chatBot
+                message: message,
+                chatBot: chatBot,
+                sessionId: sessionId
             })
         });
 
