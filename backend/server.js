@@ -112,10 +112,7 @@ server.post("/api/save-chat", (req, res) => {
 
         const formattedConversation = session.conversation.map(turn => `${turn.role}:\n${turn.text}\n`).join("\n");
 
-        const fileContent = `Chatbot: ${chatBot} 
-                             Session ID: ${sessionId}
-                             
-                             ${formattedConversation}`;
+        const fileContent = `Chatbot: ${chatBot} Session ID: ${sessionId} \n ${formattedConversation}`;
 
         const filename = `chat_${chatBot}_${sessionNumber}.txt`
         const filePath = path.join(folder, filename);
