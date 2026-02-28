@@ -117,12 +117,26 @@ let sessionId = Date.now() + "_" + Math.random().toString(16).slice(2);
 
 const chatBot = document.body.dataset.chatbot;
 
+//put the messages into the clean bubbles
+function addBubble(text, side) {
+    const row = document.createElement("div");
+    row.className = `chatBubbleRow ${side}`;
+    const bubble = document.createElement("div");
+    bubble.className = `chatBubble ${side}`;
+    bubble.textContent = text;
+
+    row.appendChild(bubble);
+    chatOutput.appendChild(row);
+
+    chatOutput.scrollTop = chatOutput.scrollHeight;
+}
+
 //send when clicking the button
 sendChat.addEventListener("click", async () => {
     const message = chatInput.value.trim();
     if (!message) return;
 
-    chatOutput.textContent += "You: " + message + "\n";
+    addBubble(message, "right");
     chatInput.value = "";
 
     try {
@@ -138,9 +152,9 @@ sendChat.addEventListener("click", async () => {
 
         const data = await res.json();
 
-        chatOutput.textContent += "Chatbot: " + data.reply + "\n\n";
+        addBubble(data.reply, "left");
     } catch (err) {
-        chatOutput.textContent += "Error talking to chatbot\n\n";
+        addBubble("Error talking to chatBot please inform invigilator", "left");
         console.error(err);
     }
 });
