@@ -117,6 +117,7 @@ let sessionId = Date.now() + "_" + Math.random().toString(16).slice(2);
 
 const chatBot = document.body.dataset.chatbot;
 
+//send when clicking the button
 sendChat.addEventListener("click", async () => {
     const message = chatInput.value.trim();
     if (!message) return;
@@ -141,6 +142,14 @@ sendChat.addEventListener("click", async () => {
     } catch (err) {
         chatOutput.textContent += "Error talking to chatbot\n\n";
         console.error(err);
+    }
+});
+
+//also send when hitting enter for a better user experience
+chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        sendChat.click();
     }
 });
 
