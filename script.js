@@ -20,9 +20,9 @@ window.addEventListener("DOMContentLoaded", () => {
     //Added in a data variable so only two of our pages (chabotA and chatbotB) will have this, this is added in the <body> in html
     if (document.body.dataset.tenMinsA || document.body.dataset.tenMinsB) {
 
-        const banner9mins = document.getElementById("banner9mins");
+        const banner4mins = document.getElementById("banner4mins");
         const banner10secs = document.getElementById("banner10secs");
-        let shown9mins = false;
+        let shown4mins = false;
         let shown10sec = false;
 
         //start our timer on page load
@@ -31,12 +31,12 @@ window.addEventListener("DOMContentLoaded", () => {
         //check if either of the banners are needed (based on time via ticks) and if they are show them
         const tick = () => {
             const timeGone = Date.now() - start;
-            const timeLeft = 600000 - timeGone;
+            const timeLeft = 300000 - timeGone;
 
             //when one min left (60,000) and it hasnt been shown before, show the banner
-            if (!shown9mins && timeLeft <= 60000) {
-                shown9mins = true;
-                showOnly5Seconds(banner9mins);
+            if (!shown4mins && timeLeft <= 60000) {
+                shown4mins = true;
+                showOnly5Seconds(banner4mins);
             }
 
             //when 10 seconds left (10,000) and it hasnt been shown before, show the banner
