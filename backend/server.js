@@ -106,7 +106,7 @@ server.post("/api/save-chat", (req, res) => {
         const folder = ensureSaving();
         const chatBot = session.chatBot;
 
-        const files = fs.readdirSync(folder).filter(file => file.startsWith(`chatbot_${chatBot}_`));
+        const files = fs.readdirSync(folder).filter(file => file.startsWith(`chat_${chatBot}_`));
         
         const sessionNumber = files.length + 1;
 
