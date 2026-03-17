@@ -45,7 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 showOnly5Seconds(banner10secs);
             }
 
-            //if 10mins have passed then redirect the user to the next page
+            //if 5mins have passed then redirect the user to the next page
             if (timeLeft <= 0) {
                 if (document.body.dataset.tenMinsA) {
                     fetch("http://localhost:3000/api/save-chat", {
